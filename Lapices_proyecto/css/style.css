@@ -1,0 +1,338 @@
+/*Dejamos los margenes y padding a cero para comenzar*/
+*{
+margin:0;
+padding:0;
+}
+/*Damos color al body usamos fuente y ponemos altura, he utilizado Google fonts*/
+body{
+background-color:#000000;
+font-family: Poppins,sans-serif;
+height: 100vh;
+}
+
+/*Diseñamos el header y posicionamos lo que contiene*/
+header{
+display: flex;
+justify-content: center;
+align-items: center;
+background-color:transparent;
+padding: 20px;
+}
+/*Construimos el menu desplegable y lo posicionamos*/
+nav{
+position: fixed;
+top:-100vh;
+left: 0;
+width: 40%;
+height: 90vh;
+background-color:whitesmoke;
+transition: top 0.9s;
+border-radius: 15px;
+z-index:1;
+}
+
+/*Posicionamos los ul que se encuentran dentro del nav del menu desplegable*/
+nav ul{
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+height: 100%;
+align-items: flex-start;
+font-size: 2em;
+list-style: none;
+}
+
+/*Quitamos subrayados a los enlaces y damos tamaño*/
+nav a{
+text-decoration: none; 
+font-size: 2em;
+color:grey;
+}
+
+/*Ocultamos botones*/
+.mas,.menos{
+display:none;
+webkit-appearance:none;
+appearance: none;
+}
+
+/*Creamos la clase desplegado para que se pueda mostrar el menu desplegable*/
+.desplegado{
+top:0;
+
+}
+
+
+/*Creamos el boton para cerrar el menu desplegable*/
+.menos{
+
+border:none;
+background-color: transparent;
+display: block;
+color:#000000;
+font-size: 1.5em;
+position: absolute;
+top:20px;
+right: 20px;
+}
+
+/*Creamos el boton para abrir el menu desplegable*/
+.mas{
+display: block;
+background-color: transparent;
+border: 1px solid #FFFFFF;
+width: 33px;
+padding: 5px 5px 0;
+border: none;
+position: absolute;
+left: 0;
+margin-left: 30px;
+border-radius: 40px;
+height: 50px;
+}
+/*Creamos la opcion encendido para activarla mas tarde con JavaScript al pasar en raton por encima del boton mas*/
+.encendido.mas{
+background-color: grey;
+}
+/*Creamos el menu hamburguesa para abrir dentro del boton mas*/
+.mas span{
+display: block;
+height: 3px;
+background-color:#FFFFFF;
+margin-bottom: 5px;
+}
+
+/*Hacemos una transicion para cambiar de color las flechas dentro del menu desplegable*/
+nav a span{
+transition: 0.5s;
+color: rgba(0,0,0);
+}
+/*Creamos el hover para que cambie de color al pasar por encima de las flechas por dentro del menu desplegable*/
+nav a span:hover{
+color:rgba(0,0,0,0.5)
+}
+/*Damos tamaño y color al h1*/
+h1{
+color: #FFFFFF;
+font-size:2.3em;
+
+}
+/*Posicionamos lo que incluye el contenedor1*/
+.contenedor1{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+margin-top: 30px;
+}
+/*Posicionamos y damos color y forma y sombras a la caja contenedor2 y posicionamos lo que contiene*/
+.contenedor2{
+display: flex;
+flex-direction: column;
+height: 400px;
+width: 400px;
+box-shadow: 1px 1px 5px rgba(255,255,255,0.8);
+border-radius: 40px;
+background: linear-gradient(to right,black 50%, white 50%);
+}
+/*Posicionamos cada una de las cajas internas donde se encuentran las palabras*/
+.contenedor2 div{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-basis: calc( 100% / 3);
+position: relative;
+
+
+}
+/*Damos forma a cada uno de los parrafos*/
+.contenedor2 p{
+font-family: Poppins;
+font-size: 4em;
+color:#FFFFFF;
+margin-bottom: 20px;
+}
+
+/*Damos posicion a cada uno de los enlaces al final de cada palabra*/
+.contenedor2 a{
+text-decoration: none;
+position: absolute;
+margin:20px -5px;
+}
+/*damos color a los span para poder alternar mas tarde con dalmata*/
+.contenedor2 p span{
+color:#000000;
+}
+
+/*Damos color a cada una de las letras finales que son un enlace*/
+.contenedor2 :nth-child(1) span a{
+color:deeppink;
+
+}
+/*Damos color a cada una de las letras finales que son un enlace*/
+.contenedor2 :nth-child(2) span a{
+color:#ff6700;
+}
+/*Damos color a cada una de las letras finales que son un enlace*/
+.contenedor2 :nth-child(3) span  a{
+color:grey;
+}
+
+/*Ocultamos el div lapices para poder activarlo mas tarde con Javascript*/
+.lapices{
+display: none;
+}
+
+/*Situamos la imagen, y damos tamaño borde y forma*/
+.lapices img{
+display: block;
+border-radius: 40px;
+box-shadow: 1px 1px 5px rgba(255,255,255,0.8);
+width: 100%;
+height: 250px;
+
+}
+/*indicamos la clase para que aparezca la imagen cuando pasa por encima de cada enlace y hacemos animacion*/
+.activo{
+display: flex;
+animation:aparecer 5s;
+}
+/*Hacemos los parametros de la  animacion*/
+@keyframes aparecer{
+
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+/*Damos forma al boton luna*/
+.luna{
+--webkit-appearance: none;
+appearance: none;
+border: none;
+background-color:whitesmoke;
+width: 50px;
+height: 50px;
+border-radius: 50px;
+cursor: pointer;
+display: block;
+position: absolute;
+right: 0;
+margin-right: 20px;
+
+}
+
+/*Creamos la situacion inicial del boton luna*/
+.luna{
+filter: saturate(50%) brightness(300%) blur(15px);
+transition: filter 3s;
+}
+/*Creamos la situacion del hover para cuando pasamos por encima de luna con el raton*/
+.luna:hover{
+filter: saturate(0%) 
+
+}
+/*Creamos el color de fondo del header al poner la clase luz */
+.luz{
+background-color:#FFFFFF;
+}
+/*Damos color especifico al h1 al ponerle la clase luz al header*/
+.luz h1{
+color:#000000;
+}
+/*Damos background especifico al span al poner la clase luz al header*/
+.luz span{
+background-color: transparent;
+}
+/*Damos background especifico al span del nav al poner la clase luz al header*/
+.luz nav span{
+background-color: transparent;
+}
+/*Damos background especifico al boton poner la clase luz del header*/
+.luz button{
+background-color:#000000;
+}
+/*Damos color especifico al span del boton al activar la clase luz del header*/
+.luz button span{
+background-color:#000000;
+}
+/*Damos background especifico al boton al activar la clase luz del header y que se pueda ver el menu hamburguesa*/
+.luz button{
+background-color: transparent;
+}
+/*Damos background al boton luna al tener la clase luz del header*/
+.luz .luna{
+background-color:#000000;
+}
+/*Creamos la situacion dalmata para activarla y alternarla mas tarde con JavaScript*/
+.dalmata{
+
+background: linear-gradient(to left,#000000 50%, #FFFFFF 50%);
+}
+/*Damos color al parrafo cuando tenga la clase dalmata*/
+.dalmata p {
+color: #000000;
+}
+/*Damos color al span especifico del parrafo cuando tenga la clase dalmata*/
+.dalmata p span{
+color:#FFFFFF;
+}
+
+/*Damos color y tamaño a los iconos de redes sociales*/
+i{
+font-size: 1.5em;
+color:#FFFFFF;
+}
+/*damos margen izquierdo a todos los iconos de redes sociales menos al primero*/
+i:not(:first-child){
+margin-left:5px;
+}
+
+/*Damos color a los iconos de redes sociales cuando se active la clase luz del header*/
+.luz i{
+color: #000000;
+}
+
+
+/*Escribimos las reglas especificas para distintos dispositivos y hacemos la web responsive*/
+
+/*Damos reglas para que sea responsive en  tablets*/
+@media screen and (max-width:801px){
+/*Ajustamos altura del body*/
+body{
+height: 90%;
+}
+/*Ajustamos ancho del nav del menu desplegable*/
+nav{
+width: 100%;
+
+}
+/*Situamos el contenedor1 */
+.contenedor1{
+flex-direction: column;
+
+}
+/*Damos margen a las cajas lapices*/
+.lapices{
+margin-bottom: 20px;
+}
+/*Damos margen al contenedor2*/
+.contenedor2{
+margin-bottom: 20px;
+}
+
+	}
+/*Damos reglas  para que sea responsive en moviles*/
+@media screen and (max-width:501px){
+/*Ajustamos altura del body y situamos*/
+body{
+flex-direction: column;
+height:140vh;
+}
+/*Ajustamos ancho del nav del menu desplegable*/
+nav{
+width: 100%;
+}
+
+	}

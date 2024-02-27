@@ -1,0 +1,34 @@
+/*Dejamos a 0 margenes y padding antes de comenzar*/
+*{
+margin: 0;
+padding: 0;
+}
+/*Damos altura ,fuente y situamos imagen dentro del body*/
+body{
+height: 100vh;
+font-family: Poppins,sans-serif;
+font-size: 2em;
+font-weight: bold;
+background: url("../img/05.jpg") no-repeat center;
+background-size:cover ;
+}
+/*Posicionamos el parrafo y damos color y margen*/
+p{
+color:white;
+margin: 20px 20px;
+
+}
+/*damos color especifico al span*/
+span{
+color:#ff6700;
+}
+
+/*Posicionamos el enlace damos color y tamaño*/
+nav a{
+color: #ff6700;
+font-size: 1.5em;
+position: absolute;
+top: 10px;
+right: 30px;
+text-decoration: none;
+}
